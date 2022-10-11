@@ -17,6 +17,7 @@ public class TurnToAngle extends PIDCommand {
    * @param targetAngleDegrees The angle to turn to
    * @param drive The drive subsystem to use
    */
+  public DriveSubsystem dingle;
   public TurnToAngle(double targetAngleDegrees, DriveSubsystem drive) {
     super(
         new PIDController(DriveConstants.kTurnP, DriveConstants.kTurnI, DriveConstants.kTurnD),
@@ -28,7 +29,7 @@ public class TurnToAngle extends PIDCommand {
         output -> drive.arcadeDrive(0, output),
         // Require the drive
         drive);
-
+dingle = drive;
     // Set the controller to be continuous (because it is an angle controller)
     getController().enableContinuousInput(-180, 180);
     // Set the controller tolerance - the delta tolerance ensures the robot is stationary at the
@@ -38,6 +39,10 @@ public class TurnToAngle extends PIDCommand {
   }
 
   @Override
+  public void initialize(){
+    dingle.zeroHeading();
+    super.initialize();
+  }
   public boolean isFinished() {
     // End when the controller is at the reference.
     return getController().atSetpoint();
