@@ -28,8 +28,18 @@ public class TurnToAngle extends PIDCommand {
         targetAngleDegrees,
         // Pipe output to turn robot
         output -> {
-          System.out.println(output);
+        output /= 100;
+          //System.out.println(output);
+          if ((-0.2 < output && output < 0.2)){
+            if (output > 0){
+             output = 0.2;
+            }
+            else if (output < 0){
+              output = -0.2;
+            }
+          }
           drive.arcadeDrive(0,MathUtil.clamp(output, -0.8, 0.8));
+          
         }
          ,
         // Require the drive
