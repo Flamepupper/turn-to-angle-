@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.controller.PIDController;
 import frc.robot.Constants.DriveConstants;
 import frc.robot.subsystems.DriveSubsystem;
@@ -26,7 +27,7 @@ public class TurnToAngle extends PIDCommand {
         // Set reference to target
         targetAngleDegrees,
         // Pipe output to turn robot
-        output -> drive.arcadeDrive(0, output),
+        output -> drive.arcadeDrive(0, MathUtil.clamp(output, -0.5, 0.5)),
         // Require the drive
         drive);
 dingle = drive;
