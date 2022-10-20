@@ -48,9 +48,8 @@ public class RobotContainer {
         // hand, and turning controlled by the right.
         new RunCommand(
             () ->
-                m_robotDrive.arcadeDrive(
-                    -m_driverController.getLeftY(), m_driverController.getLeftX()),
-            m_robotDrive));
+            m_robotDrive.arcadeDrive(-m_driverController.getLeftY(), m_driverController.getLeftX()),m_robotDrive));
+            //m_robotDrive.arcadeDrive(-m_driverController.getLeftY(), m_driverController.getLeftX()),m_robotDrive));
   }
 
   /**
@@ -91,8 +90,12 @@ public class RobotContainer {
     // Turn to -90 degrees with a profile when the Circle button is pressed, with a 5 second timeout
     new JoystickButton(m_driverController, Button.kA.value)
     .whenPressed(new GyroTurn(m_robotDrive));
-    new JoystickButton(m_driverController, Button.kB.value)
+
+    new JoystickButton(m_driverController, Button.kRightBumper.value)
     .whenPressed(new TurnToAngle(90, m_robotDrive));
+
+    new JoystickButton(m_driverController, Button.kLeftBumper.value)
+    .whenPressed(new TurnToAngle(-90, m_robotDrive));
     /*new JoystickButton(m_driverController, Button.kB.value)
     .whenPressed(new stopGoBack(90, m_robotDrive));
     */

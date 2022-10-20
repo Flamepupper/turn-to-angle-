@@ -7,7 +7,8 @@ import frc.robot.subsystems.DriveSubsystem;
 
 public class Koner extends SequentialCommandGroup{
     public Koner(DriveSubsystem drive){
-//708cm x 540cm wall to wall table
+        
+/*//708cm x 540cm wall to wall table
 //67.625 cm/s
 //708/67.625 x 540/67.625 table
 int degrees = 90;
@@ -22,5 +23,6 @@ addCommands(
         new TimedTurn(drive, degrees),
         new TimedStraight(drive, width)
 );
+*/
     }
 }
