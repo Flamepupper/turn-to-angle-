@@ -1,4 +1,4 @@
-package frc.robot.commands;
+/*package frc.robot.commands;
 import java.io.File;
 import javax.sound.midi.MidiEvent;
 import javax.sound.midi.MidiMessage;
@@ -50,7 +50,9 @@ public class midi {
                         long timeB = ((event.getTick() / 512)*100);
                         int speaker = 0;
                         double speed = (((noteName / 12)/3)* velocity);
-                        long TimerStart();
+                        long TimerStart = 0;
+                        System.currentTimeMillis() - TimerStart;
+
 
                     } else {
                         System.out.println("Command:" + sm.getCommand());
@@ -65,4 +67,4 @@ public class midi {
 
             System.out.println();
         }
-    }
+    }*/
